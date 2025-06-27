@@ -1,0 +1,139 @@
+<h1 class="font-bold pl-4 pt-4">Forms</h1>
+<button mat-raised-button (click)="navigateToDashboard()">back</button>
+<br />
+<br />
+
+<!--! FORM EXAMPLE #1 -->
+<h2>FORM #1</h2>
+
+<!-- Basic form that submits to /tacos -->
+<form action="/tacos">
+  <div>
+    <!-- Label linked to input via 'for' and 'id' attributes -->
+    <label for="firstname">Enter Firstname:</label>
+    <!-- Text input for first name with placeholder and required field -->
+    <input
+      id="firstname"
+      type="text"
+      name="firstname"
+      placeholder="input firstname"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="username">Username:</label>
+    <!-- Username input with min and max length validation -->
+    <input
+      id="username"
+      type="text"
+      name="username"
+      placeholder="input username"
+      minlength="5"
+      maxlength="10"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <!-- Email input with basic validation via 'type="email"' -->
+    <input id="email" type="email" name="email" required />
+  </div>
+
+  <!-- Default submit button -->
+  <button>Submit</button>
+</form>
+
+<!--! FORM EXAMPLE #2 -->
+<br />
+<br />
+<!-- Visual divider -->
+<p>-------------------------------------------------------------</p>
+
+<h2>FORM #2</h2>
+
+<!-- Registration form that submits to /registration -->
+<form action="/registration">
+  <!-- Styled heading for the form -->
+  <h1 class="race-reg">Race Registration!</h1>
+
+  <div>
+    <!-- First and Last name inputs with required validation -->
+    <label for="firstname">First Name</label>
+    <!-- Class 'fun' might be for styling in CSS -->
+    <input class="fun" id="firstname" type="text" name="firstname" required />
+
+    <label for="lastname">Last Name</label>
+    <input id="lastname" type="text" name="lastname" required />
+  </div>
+
+  <div>
+    <br />
+    <div>
+      <p>Select a Race:</p>
+    </div>
+
+    <!-- Radio buttons grouped under the same 'name' to allow single selection -->
+    <div>
+      <div>
+        <input id="funrun" type="radio" name="race" value="funrun" />
+        <label for="funrun">Fun Run 5k</label>
+      </div>
+
+      <div>
+        <input id="half" type="radio" name="race" value="half" />
+        <label for="half">Half Marathon</label>
+      </div>
+
+      <div>
+        <input id="full" type="radio" name="race" value="full" />
+        <label for="full">Full Marathon</label>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <!-- Email input -->
+    <label for="email">Email</label>
+    <input id="email" type="email" required name="email" />
+
+    <!-- Password input with length validation -->
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      name="password"
+      required
+      minlength="10"
+      maxlength="15"
+    />
+  </div>
+
+  <div>
+    <!-- Select dropdown for age group with proper value-label pairs -->
+    <label for="age-group">Select Age Group</label>
+    <select id="age-group" name="age">
+      <option value="minor">under 18</option>
+      <option value="young adult">18-30</option>
+      <option value="adult">30-50</option>
+      <option value="senior">50+</option>
+    </select>
+  </div>
+
+  <!-- Submit button with explicit type -->
+  <button type="submit">Register</button>
+</form>
+
+<!-- Simple text and links below forms -->
+<p>PICKLEBALL</p>
+
+<!-- Basic anchor link -->
+<a href="https://example.com">test link</a>
+
+<!-- Label element containing a link -->
+<label class="label">
+  Link
+  <!-- This will use the `.label a:hover` style defined in your CSS -->
+  <a href="https://example.com">Website</a>
+</label>

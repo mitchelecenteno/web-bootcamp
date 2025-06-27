@@ -1,0 +1,55 @@
+.bg {
+  background-color: #60a9ff;
+}
+
+img {
+  padding: 0 1.5rem;
+}
+
+.pricing-header {
+  margin: 2.5rem 0 4.5rem; //top, right, bottom ,left same as right
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.pricing-price {
+  margin: 2.5rem 0 2rem; //top, right, bottom ,left same as right
+  font-size: 2.5rem;
+  // color: #016ff9; //used custom tailwind in HTML
+  font-weight: bold;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+li {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.5rem;
+  font-weight: 500;
+  color: #016ff9;
+  border-top: 1px solid #e1f1ff;
+  letter-spacing: 0.2rem;
+}
+
+.price {
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: bold;
+  color: #136cd2;
+}
+
+.btn {
+  padding: 2rem 3rem;
+  margin: 0.5rem 0 1.5rem;
+  font-size: 1.5rem;
+  width: auto;
+  height: 50px;
+  text-transform: uppercase;
+}

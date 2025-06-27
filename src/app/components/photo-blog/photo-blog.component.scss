@@ -1,0 +1,19 @@
+img {
+  width: 30%;
+  display: inline;
+  margin: calc(
+    10% / 6
+  ); //width is 30% with 3 box = 90%, remaining is 10% divide to 6 sides of margin = 1.666%
+  //   margin: 1.6666%;
+}
+
+nav {
+  width: 30%;
+  font-family: Raleway, sans-serif;
+  font-size: 1.8rem;
+  font-weight: lighter;
+  border-bottom: 2px solid #f1f1f1;
+  padding: 20px 0;
+  margin-left: calc(10% / 6);
+  text-transform: uppercase;
+}

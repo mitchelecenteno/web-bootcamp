@@ -1,0 +1,46 @@
+<h1 class="font-bold pl-4 pt-4">Calculator</h1>
+<button mat-raised-button (click)="navigateToDashboard()">back</button>
+
+<mat-card class="w-1/6 h-auto mx-auto mt-10 p-4 !bg-gray-500 border-r-6">
+  <mat-label class="pb-2 text-white">CAT-SIO</mat-label>
+  <mat-form-field class="w-full mb-4">
+    <input matInput readonly [value]="display" />
+  </mat-form-field>
+
+  <div class="grid grid-cols-4 gap-3">
+    <button mat-raised-button (click)="numClick('1')">1</button>
+    <button mat-raised-button (click)="numClick('2')">2</button>
+    <button mat-raised-button (click)="numClick('3')">3</button>
+    <button mat-raised-button (click)="numClick('+')">+</button>
+
+    <button mat-raised-button (click)="numClick('4')">4</button>
+    <button mat-raised-button (click)="numClick('5')">5</button>
+    <button mat-raised-button (click)="numClick('6')">6</button>
+    <button mat-raised-button (click)="numClick('-')">-</button>
+
+    <button mat-raised-button (click)="numClick('7')">7</button>
+    <button mat-raised-button (click)="numClick('8')">8</button>
+    <button mat-raised-button (click)="numClick('9')">9</button>
+    <button mat-raised-button (click)="numClick('*')">x</button>
+
+    <button mat-raised-button (click)="numClick('0')">0</button>
+    <button mat-raised-button (click)="numClick('/')">/</button>
+
+    <!--! -->
+    <button mat-raised-button (click)="calculate()">=</button>
+    <button
+      mat-raised-button
+      (click)="clear()"
+      class="!bg-orange-400 !text-white"
+    >
+      Clear
+    </button>
+    <button
+      mat-raised-button
+      (click)="calculate()"
+      class="col-span-4 !bg-red-400 !text-white"
+    >
+      Enter
+    </button>
+  </div>
+</mat-card>

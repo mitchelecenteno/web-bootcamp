@@ -1,0 +1,36 @@
+/* Element Selector */
+p {
+  text-align: center;
+  font-weight: 900;
+}
+
+/* Attribute Selector (type attribute) */
+input[type="password"] {
+  color: red;
+}
+
+/* Attribute Selector (class attribute) — though `.fun` class could be better */
+input[class="fun"] {
+  color: magenta;
+}
+
+/* Element Selector + Class Selector */
+h1.race-reg {
+  color: green;
+}
+
+/* Pseudo-class (hover) + Element Selector */
+a:hover {
+  color: red;
+}
+
+/* Class Selector + Descendant Element + Pseudo-class (hover) */
+.label a:hover {
+  text-decoration: underline;
+  color: orange;
+}
+
+/* Pseudo-class (active) + Element Selector */
+button:active {
+  background-color: red;
+}
