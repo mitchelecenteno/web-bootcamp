@@ -76,6 +76,14 @@ const routes: Routes = [
         (m) => m.BootstrapModule
       ),
   },
+  { path: 'loops', loadChildren: () => import('./loops/loops.module').then(m => m.LoopsModule) },
+  { path: 'guessing-game', loadChildren: () => import('./components/guessing-game/guessing-game.module').then(m => m.GuessingGameModule) },
+  { path: 'todo-app', loadChildren: () => import('./components/todo-app/todo-app.module').then(m => m.TodoAppModule) },
+  { path: 'functions', loadChildren: () => import('./components/functions/functions.module').then(m => m.FunctionsModule) },
+  { path: 'callbacks-array-methods', loadChildren: () => import('./components/callbacks-array-methods/callbacks-array-methods.module').then(m => m.CallbacksArrayMethodsModule) },
+  { path: 'dom-practice', loadChildren: () => import('./components/dom-practice/dom-practice.module').then(m => m.DomPracticeModule) },
+  { path: 'dom-practice', loadChildren: () => import('./components/dom-practice/dom-practice.module').then(m => m.DomPracticeModule) },
+  { path: 'events-practice', loadChildren: () => import('./components/events-practice/events-practice.module').then(m => m.EventsPracticeModule) },
 ];
 @NgModule({
   declarations: [],

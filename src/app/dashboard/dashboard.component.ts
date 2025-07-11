@@ -33,6 +33,9 @@ export class DashboardComponent {
       case 'flex-box':
         this.router.navigate(['/flex-box']);
         break;
+      case 'pricing-panel':
+        this.router.navigate(['/pricing-panel']);
+        break;
       default:
         this.router.navigate(['/dasboard']);
     }
