@@ -1,13 +1,99 @@
-<p>events-practice works!</p>
-
+<!-- <h2>Events</h2>
 <div class="flex flex-col col-2 gap-1">
-  <button mat-raised-button (click)="clicked()">Click</button>
+  <button mat-raised-button onclick="alert('1st Version Clicked')">
+    Click Me (1st Version)
+  </button>
   <button mat-raised-button (dblclick)="dblClicked()">Double Click</button>
+  <button mat-raised-button id="v2" (click)="clicked()">
+    Click Me (2nd Version)
+  </button>
+  <button mat-raised-button id="v3">Click Me (3rd Version)</button>
+</div>
+<br />
+<br />
+<h2>Exercises:</h2>
+<div class="flex flex-col col-2 gap-1">
   <h1 onclick="console.log('boo')">Inline Events Suck...</h1>
 
   <button mat-raised-button id="btn" onclick="console.log('something here')">
     SomethingClick Me
   </button>
-  <button mat-raised-button id="v2">Click Me (2nd Version)</button>
-  <button mat-raised-button id="v3">Click Me (3rd Version)</button>
+  <button mat-raised-button id="tas">Twist and Shout</button>
+</div> -->
+
+<!-- EXERCISE #1 -->
+<!-- <div
+  [ngStyle]="{ 'background-color': bgColor }"
+  class="flex flex-col justify-center items-center h-screen"
+>
+  <p class="font-semibold text-2xl text-center">Click Me</p>
+  <button mat-raised-button id="changeColor">Change Color</button>
 </div>
+
+<div class="flex flex-row justify-center gap-3">
+  <div>
+    <button mat-raised-button class="h-30 w-30">Click ME</button>
+  </div>
+  <div>
+    <button mat-raised-button class="h-30 w-30">Click ME</button>
+  </div>
+  <div>
+    <button mat-raised-button class="h-30 w-30">Click ME</button>
+  </div>
+  <div>
+    <button mat-raised-button class="h-30 w-30">Click ME</button>
+  </div>
+  <div>
+    <button mat-raised-button class="h-30 w-30">Click ME</button>
+  </div>
+
+  <h1>Click Me!</h1>
+  <h1>Click Me!</h1>
+  <h1>Click Me!</h1>
+  <h1>Click Me!</h1>
+  <label>Input:</label>
+  <input /> -->
+
+<!-- form -->
+<!-- <form action="/shelter" id="shelterForm">
+    <input id="catName" />
+    <button>Submit</button>
+  </form>
+</div> -->
+
+<!-- <h1>Grocery List</h1>
+<form action="/nowhere">
+  <label for="product">Enter A Product</label>
+  <input type="text" id="product" name="product" />
+  <label for="qty">Enter A Quantity</label>
+  <input type="number" id="qty" name="qty" />
+  <button>Submit</button>
+</form>
+
+<ul id="list"></ul> -->
+
+<!-- <p>TEXT</p>
+<label>First Name:</label>
+<input id="firstName" /> -->
+
+<!-- <h1>Enter Your Username</h1>
+<input type="text" id="username" /> -->'
+
+<!--! Event Bubbling -->
+<!-- <button mat-raised-button (click)="alert1()">
+  Button 1
+  <button mat-raised-button (click)="alert2($event)">Button 2</button>
+</button> -->
+
+<!--! Event Delegation  -->
+<uL>
+  <li *ngfor="let item of items" [attr.data-id]="item.id">{{ item.name }}</li>
+</uL>
+
+
+<!-- Parent container listens to all clicks -->
+<ul (click)="onListClick($event)">
+  <li *ngFor="let item of items" [attr.data-id]="item.id">
+    {{ item.name }}
+  </li>
+</ul>

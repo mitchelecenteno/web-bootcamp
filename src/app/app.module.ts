@@ -7,6 +7,7 @@ import { CalculatorModule } from './components/calculator/calculator.module';
 import { FormModule } from './components/form/form.module';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { AngularAppModule } from './components/Angular/angular-app/angular-app.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     FormModule,
     AppRoutingModule,
     RouterModule,
+    AngularAppModule,
   ],
 
   exports: [],

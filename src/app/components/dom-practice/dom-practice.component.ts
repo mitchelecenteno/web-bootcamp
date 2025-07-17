@@ -116,8 +116,5 @@ export class DomPracticeComponent implements OnInit {
     //! removeChild & remove
     const bOne = document.querySelector('b');
     bOne?.parentElement?.removeChild(bOne); //remove the child so need to navigate to the parent first
-
-    const img1 = document.querySelector('img');
-    img1?.remove(); //remove me no need to navigate to parent
   }
 }
