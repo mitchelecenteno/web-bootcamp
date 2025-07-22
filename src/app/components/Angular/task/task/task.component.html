@@ -6,6 +6,10 @@
 <!-- <p>Service Sample</p>
 <button (click)="sendToUser()">Send Message to User</button> -->
 
+<div *ngIf="addTask">
+  <app-add-task />
+</div>
+
 <section id="tasks">
   <header>
     <h2>{{ name }}'s Tasks</h2>
@@ -17,12 +21,6 @@
   <ul>
     <li *ngFor="let task of selectedUserTasks">
       <app-user-task [task]="task" (complete)="onCompleteTask($event)" />
-    </li>
-  </ul>
-
-  <ul *ngIf="addTask">
-    <li *ngFor="let task of selectedUserTasks">
-      <app-add-task [addTask]="task"></app-add-task>
     </li>
   </ul>
 </section>

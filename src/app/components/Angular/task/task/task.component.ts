@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from 'src/app/shared/interfaces/task.interface';
 import { MessageService } from 'src/app/services/message.service';
+import { MatDialog } from '@angular/material/dialog';
+import { FormTaskComponent } from './add-task/form-task/form-task.component';
 
 @Component({
   selector: 'app-task',
@@ -15,6 +17,8 @@ export class TaskComponent implements OnInit {
   @Input() userId?: string;
 
   ngOnInit(): void {}
+
+  constructor(public dialog: MatDialog) {}
 
   // clicked = selected user = to userId ? show task : ''
   tasksArr: Task[] = [
@@ -50,13 +54,29 @@ export class TaskComponent implements OnInit {
   }
 
   onAddTask() {
-    const newTask: Task = {
-      taskId: `t${Date.now()}`,
-      userId: this.userId ?? '',
-      title: 'New Task',
-      summary: 'Task summary',
-      dueDate: new Date().toISOString().slice(0, 10),
-    };
-    this.tasksArr.push(newTask);
+    this.addTask = true;
+
+    const dialogRef = this.dialog.open(FormTaskComponent, {
+      data: {
+        addTask: this.addTask, // Pass addTask value to dialog
+      },
+      disableClose: true, // disable click and esc close of dialog
+    });
+
+    //Subscribe to dialog close event
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        const newTask = {
+          taskId: 't' + (this.tasksArr.length + 1),
+          userId: this.userId ?? '',
+          title: result.title,
+          summary: result.summary,
+          dueDate: result.dueDate,
+        };
+        this.tasksArr.push(newTask);
+      }
+      this.addTask = false;
+    });
   }
 }

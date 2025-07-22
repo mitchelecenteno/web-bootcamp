@@ -1,0 +1,65 @@
+<div class="w-[500px] p-6 bg-white rounded-lg shadow-lg">
+  <!-- Add the form here -->
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="flex flex-col gap-6">
+      <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">
+        Add Task
+      </h2>
+
+      <mat-form-field class="w-full">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          class="w-full"
+          id="task-title"
+          formControlName="title"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Summary</mat-label>
+        <textarea
+          matInput
+          rows="4"
+          class="w-full resize-none"
+          id="task-summary"
+          formControlName="summary"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Choose a date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          class="w-full"
+          formControlName="dueDate"
+          id="due-date"
+          type="date"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div class="flex gap-3 mt-4">
+        <button
+          type="submit"
+          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors duration-200"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
