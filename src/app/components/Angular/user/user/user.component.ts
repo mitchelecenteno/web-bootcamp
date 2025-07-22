@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MessageService } from 'src/app/services/message.service';
+import { User } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-user',
@@ -6,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
+
   /* 
   INPUT and OUTPUT Decorator: 
    a. INPUT - parent to child
@@ -16,16 +19,26 @@ export class UserComponent implements OnInit {
   // @Input({ required: true }) avatar!: string; //@Input - lets a parent component update/input data in the child component
   // @Input({ required: true }) name!: string;
 
-  @Input({ required: true }) user!: {id:string, name:string, avatar:string}
+  @Input({ required: true }) user!: User; //@Input: object
   @Output() select = new EventEmitter<string>(); //@Output - lets a child component sends data to the parent component: custom event
+  receivedTestMessage: string = '';
+  @Input() isSelected!: boolean
 
-  ngOnInit(): void {}
+
+  constructor(private meesageService: MessageService) {}
+
+  ngOnInit(): void {
+    this.meesageService.message$.subscribe((msg) => {
+      this.receivedTestMessage = msg;
+      console.log(this.receivedTestMessage);
+    });
+  }
 
   // get imagePath() {
   //   return '../../../../../assets/angular/users/'
   // }
 
   onSlctUsr() {
-    this.select.emit(this.user.id); // 👈 Sends the id back to the parent
+    this.select.emit(this.user.userId); // 👈 Sends the id back to the parent
   }
 }

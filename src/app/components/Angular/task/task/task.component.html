@@ -1,1 +1,28 @@
-<h2>{{ name }}</h2>
+<!-- <mat-card class="ml-5 p-2">
+  <h2>{{ name }}</h2>
+  <app-task-child></app-task-child>
+</mat-card> -->
+
+<!-- <p>Service Sample</p>
+<button (click)="sendToUser()">Send Message to User</button> -->
+
+<section id="tasks">
+  <header>
+    <h2>{{ name }}'s Tasks</h2>
+    <menu>
+      <button mat-raised-button (click)="onAddTask()">Add Task</button>
+    </menu>
+  </header>
+
+  <ul>
+    <li *ngFor="let task of selectedUserTasks">
+      <app-user-task [task]="task" (complete)="onCompleteTask($event)" />
+    </li>
+  </ul>
+
+  <ul *ngIf="addTask">
+    <li *ngFor="let task of selectedUserTasks">
+      <app-add-task [addTask]="task"></app-add-task>
+    </li>
+  </ul>
+</section>

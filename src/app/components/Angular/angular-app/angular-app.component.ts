@@ -8,16 +8,17 @@ import { DUMMY_USERS } from '../user/user/dummy-user';
 })
 export class AngularAppComponent implements OnInit {
   users = DUMMY_USERS;
-  selectedUserId: string = 'u1';
+  selectedUserId?: string;
 
   ngOnInit(): void {}
 
   get selectedUser() {
-    return this.users.find((user) => user.id === this.selectedUserId);
+    return this.users.find((user) => user.userId === this.selectedUserId);
   }
 
   onSelectUser(id: string) {
-    console.log('SELECTED ID: ' + id);
     this.selectedUserId = id;
+    console.log('SELECTED USER ID:', this.selectedUserId);
+    console.log(this.selectedUser);
   }
 }

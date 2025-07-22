@@ -3,8 +3,17 @@
 <main>
   <ul id="users">
     <li *ngFor="let user of users">
-      <app-user [user]="user" (select)="onSelectUser(user.id)"></app-user>
+      <app-user
+        [user]="user"
+        [isSelected]="user.userId === selectedUserId"
+        (select)="onSelectUser(user.userId)"
+      ></app-user>
     </li>
   </ul>
-  <app-task [name]="selectedUser?.name" />
+  <app-task
+    *ngIf="selectedUser; else taskFallback"
+    [name]="selectedUser.name"
+    [userId]="selectedUser.userId"
+  />
+  <ng-template #taskFallback>Select a user to see their tasks!</ng-template>
 </main>
