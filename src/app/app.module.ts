@@ -24,6 +24,6 @@ import { AngularAppModule } from './components/Angular/angular-app/angular-app.m
 
   exports: [],
 
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent], // root component
 })
 export class AppModule {}
