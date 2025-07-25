@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from 'src/app/shared/interfaces/task.interface';
-import { MessageService } from 'src/app/services/message.service';
+import { MessageService } from 'src/app/services/message.service'; //service
 import { MatDialog } from '@angular/material/dialog';
-import { FormTaskComponent } from './add-task/form-task/form-task.component';
+import { FormTaskComponent } from './form-task/form-task.component';
+import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
   selector: 'app-task',
@@ -10,73 +11,46 @@ import { FormTaskComponent } from './add-task/form-task/form-task.component';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent implements OnInit {
-  testData = 'will travel to other component';
-  addTask: boolean = false;
+  // private readonly messageForTesting = 'will travel to other component';
+  isAddingTask: boolean = false;
+
   @Input() name?: string;
-  // @Input() name: string | undefined;
   @Input() userId?: string;
 
   ngOnInit(): void {}
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private taskService: TasksService) {}
 
-  // clicked = selected user = to userId ? show task : ''
-  tasksArr: Task[] = [
-    {
-      taskId: 't1',
-      userId: 'u1',
-      title: 'Code Practice',
-      summary: 'learn udemy angular course',
-      dueDate: '07-31-2025',
-    },
-    {
-      taskId: 't2',
-      userId: 'u3',
-      title: 'Play Pickleball',
-      summary: 'play pickleball in britanny court',
-      dueDate: '07-18-2025',
-    },
-  ];
+  get selectedUserTasks(): Task[] {
+    return this.taskService.getUserTasks(this.userId || '');
+  }
 
-  //*Service
-  // constructor(private messageService: MessageService) {}
-
-  // sendToUser() {
-  //   this.messageService.sendMessage(this.testData);
+  // onCompleteTask(taskId: string): void {
+  //   this.taskService.removeTask(taskId);
   // }
 
-  get selectedUserTasks() {
-    return this.tasksArr.filter((task) => task.userId === this.userId);
-  }
+  onAddTask(): void {
+    this.isAddingTask = true;
 
-  onCompleteTask(id: string) {
-    this.tasksArr = this.tasksArr.filter((task) => task.taskId !== id);
-  }
-
-  onAddTask() {
-    this.addTask = true;
-
-    const dialogRef = this.dialog.open(FormTaskComponent, {
-      data: {
-        addTask: this.addTask, // Pass addTask value to dialog
-      },
-      disableClose: true, // disable click and esc close of dialog
+    const addTaskDialogRef = this.dialog.open(FormTaskComponent, {
+      //* pass a data in a dialog
+      // data: {
+      //   isAddingTask: this.isAddingTask,
+      // },
+      disableClose: true,
     });
 
-    //Subscribe to dialog close event
-
-    dialogRef.afterClosed().subscribe((result: any) => {
-      if (result) {
-        const newTask = {
-          taskId: 't' + (this.tasksArr.length + 1),
+    addTaskDialogRef.afterClosed().subscribe((formResult: any) => {
+      if (formResult) {
+        const newTaskData = {
           userId: this.userId ?? '',
-          title: result.title,
-          summary: result.summary,
-          dueDate: result.dueDate,
+          title: formResult.title,
+          summary: formResult.summary,
+          dueDate: formResult.dueDate,
         };
-        this.tasksArr.push(newTask);
+        this.taskService.addTask(newTaskData);
       }
-      this.addTask = false;
+      this.isAddingTask = false;
     });
   }
 }

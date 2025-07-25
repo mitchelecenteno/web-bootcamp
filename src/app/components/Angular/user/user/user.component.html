@@ -1,13 +1,15 @@
-<div>
-  <button (click)="onSlctUsr()" [ngClass]="{ 'active': isSelected }">
-    <img
-      [src]="'../../../../../assets/angular/users/' + user.avatar"
-      [alt]="user.name"
-    />
-    <span>{{ user.name }}</span>
-  </button>
-</div>
+<app-card>
+  <div>
+    <button (click)="onSlctUsr()" [ngClass]="{ active: isSelected }">
+      <img
+        [src]="'../../../../../assets/angular/users/' + user.avatar"
+        [alt]="user.name"
+      />
+      <span>{{ user.name }}</span>
+    </button>
+  </div>
 
-<div>
-  <p>{{ receivedTestMessage }}</p>
-</div>
+  <div>
+    <p>{{ receivedTestMessage }}</p>
+  </div>
+</app-card>

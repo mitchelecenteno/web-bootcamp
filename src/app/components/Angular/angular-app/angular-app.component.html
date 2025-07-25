@@ -10,10 +10,12 @@
       ></app-user>
     </li>
   </ul>
+  <!-- if -->
   <app-task
     *ngIf="selectedUser; else taskFallback"
     [name]="selectedUser.name"
     [userId]="selectedUser.userId"
   />
+  <!-- else: in app-task else taskFallback-->
   <ng-template #taskFallback>Select a user to see their tasks!</ng-template>
 </main>

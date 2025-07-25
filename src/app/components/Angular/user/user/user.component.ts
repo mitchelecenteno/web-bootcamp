@@ -8,11 +8,14 @@ import { User } from 'src/app/shared/interfaces/user.interface';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-
   /* 
   INPUT and OUTPUT Decorator: 
    a. INPUT - parent to child
    b. OUTPUT - child to parent
+  */
+
+  /* 
+  Service sample: Message service
   */
 
   // @Input({ required: true }) id!: string;
@@ -22,12 +25,12 @@ export class UserComponent implements OnInit {
   @Input({ required: true }) user!: User; //@Input: object
   @Output() select = new EventEmitter<string>(); //@Output - lets a child component sends data to the parent component: custom event
   receivedTestMessage: string = '';
-  @Input() isSelected!: boolean
-
+  @Input() isSelected!: boolean;
 
   constructor(private meesageService: MessageService) {}
 
   ngOnInit(): void {
+    // subscribing/using service
     this.meesageService.message$.subscribe((msg) => {
       this.receivedTestMessage = msg;
       console.log(this.receivedTestMessage);

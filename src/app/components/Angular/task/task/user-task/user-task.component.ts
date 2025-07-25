@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TasksService } from 'src/app/services/tasks.service';
 import { type Task } from 'src/app/shared/interfaces/task.interface'; // "type" to be clear that this is a type
 
 @Component({
@@ -8,13 +9,17 @@ import { type Task } from 'src/app/shared/interfaces/task.interface'; // "type" 
 })
 export class UserTaskComponent implements OnInit {
   @Input({ required: true }) task!: Task;
-  @Output() complete = new EventEmitter<string>();
+  // @Output() complete = new EventEmitter<string>();
+
+  constructor(private taskService: TasksService) {}
 
   ngOnInit(): void {
     console.log(this.task.userId);
   }
 
   onCompleteTask() {
-    this.complete.emit(this.task.taskId);
+    //* use a service here instead of emitting an event and calling the service from that component
+    // this.complete.emit(this.task.taskId);
+    this.taskService.removeTask(this.task.taskId);
   }
 }

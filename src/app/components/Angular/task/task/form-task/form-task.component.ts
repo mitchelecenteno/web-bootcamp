@@ -31,21 +31,9 @@ export class FormTaskComponent implements OnInit {
 
   onSubmit() {
     if (this.taskForm.valid) {
-      console.log(this.taskForm.value);
-
       const formValue = this.taskForm.value;
-      const formattedDate = this.datePipe.transform(
-        formValue.dueDate,
-        'MMM d, y, h:mm a'
-      );
-
-      const taskData = {
-        ...formValue,
-        dueDate: formattedDate,
-      };
-
-      console.log(taskData);
-      this.dialogRef.close(taskData);
+      console.log(formValue);
+      this.dialogRef.close(formValue);
     }
   }
 }
