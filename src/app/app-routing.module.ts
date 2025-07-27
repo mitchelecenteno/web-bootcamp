@@ -138,6 +138,7 @@ const routes: Routes = [
       ),
   },
   { path: 'angular-app', loadChildren: () => import('./components/Angular/angular-app/angular-app.module').then(m => m.AngularAppModule) },
+  { path: 'invesment-app', loadChildren: () => import('./components/angular-investment-calculator/investment-app/investment-app.module').then(m => m.InvestmentAppModule) },
 ];
 @NgModule({
   declarations: [],

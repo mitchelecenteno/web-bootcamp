@@ -8,8 +8,10 @@ import { FormTaskComponent } from './form-task/form-task.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [TaskComponent, UserTaskComponent, FormTaskComponent],
-  imports: [CommonModule, MaterialModule, ReactiveFormsModule, SharedModule],
+  declarations: [TaskComponent, UserTaskComponent, FormTaskComponent], // component, directives, pipes
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule, SharedModule], // modules
   exports: [TaskComponent], //need to export in order to use in other modules
 })
+// CommonModule for Angular Directives
+
 export class TaskModule {}

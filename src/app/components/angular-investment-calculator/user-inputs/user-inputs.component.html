@@ -1,0 +1,41 @@
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="w-full">
+        <mat-label>Initial</mat-label>
+        <input
+          matInput
+          class="w-full"
+          id="initial"
+          formControlName="initial"
+        />
+      </mat-form-field>
+      
+      <mat-form-field class="w-full">
+        <mat-label>Annual</mat-label>
+        <input
+          matInput
+          class="w-full"
+          id="annual"
+          formControlName="annual"
+        />
+      </mat-form-field>
+    
+      <div class="flex gap-3 mt-4">
+        <button
+          type="submit"
+          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors duration-200"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+
+
+ 

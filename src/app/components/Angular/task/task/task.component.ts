@@ -40,6 +40,7 @@ export class TaskComponent implements OnInit {
       disableClose: true,
     });
 
+    //after the dialog closed, data is added to the array
     addTaskDialogRef.afterClosed().subscribe((formResult: any) => {
       if (formResult) {
         const newTaskData = {
