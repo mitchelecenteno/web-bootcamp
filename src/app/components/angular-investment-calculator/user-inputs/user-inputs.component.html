@@ -1,41 +1,44 @@
+<app-card>
+  <div class="card">
+    <div class="w-[500px] m-auto !mt-10">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-2 gap-4">
+          <mat-form-field class="col-span-1">
+            <mat-label>Initial Invesment</mat-label>
+            <input matInput formControlName="initial" type="number" />
+          </mat-form-field>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <mat-form-field class="w-full">
-        <mat-label>Initial</mat-label>
-        <input
-          matInput
-          class="w-full"
-          id="initial"
-          formControlName="initial"
-        />
-      </mat-form-field>
-      
-      <mat-form-field class="w-full">
-        <mat-label>Annual</mat-label>
-        <input
-          matInput
-          class="w-full"
-          id="annual"
-          formControlName="annual"
-        />
-      </mat-form-field>
-    
-      <div class="flex gap-3 mt-4">
-        <button
-          type="submit"
-          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-        >
-          Submit
-        </button>
-        <button
-          type="button"
-          class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors duration-200"
-          (click)="onCancel()"
-        >
-          Cancel
-        </button>
-      </div>
-    </form>
+          <mat-form-field class="col-span-1">
+            <mat-label>Annual Invesment</mat-label>
+            <input matInput formControlName="annual" type="number" />
+          </mat-form-field>
 
+          <mat-form-field class="col-span-1">
+            <mat-label>Expected Return</mat-label>
+            <input matInput formControlName="return" type="number" />
+          </mat-form-field>
 
- 
+          <mat-form-field class="col-span-1">
+            <mat-label>Duration</mat-label>
+            <input matInput formControlName="duration" type="number" />
+          </mat-form-field>
+          <div class="flex flex-row gap-2 !justify-center">
+            <button
+              type="submit"
+              class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors duration-200"
+              (click)="onCancel()"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</app-card>

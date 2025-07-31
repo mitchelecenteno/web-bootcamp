@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   // ❌ Nothing to declare here — it's a shared module
@@ -24,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
   ],
 
   declarations: [],

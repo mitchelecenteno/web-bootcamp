@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from 'src/app/shared/interfaces/task.interface';
 import { MessageService } from 'src/app/services/message.service'; //service
 import { MatDialog } from '@angular/material/dialog';
@@ -16,6 +16,23 @@ export class TaskComponent implements OnInit {
 
   @Input() name?: string;
   @Input() userId?: string;
+
+  //! TEST @Output Data: child to parent data pass
+  @Output() testOutput = new EventEmitter(); // type default to any
+  // @Output() testOutput = new EventEmitter<string>(); // type strict: string
+  @Output() testOutputTwo = new EventEmitter();
+  @Output() testOutputThree = new EventEmitter();
+  @Output() outputInput = new EventEmitter();
+
+  //! TEST @Input: parent to child data pass
+  @Input() dataInputOne?: string;
+  @Input() dataInputTwo?: string;
+  @Input() dataInputThree?: string;
+  @Input() inputOutput?: string;
+
+  //! property binding
+  propBind: string = 'test property binding...';
+  nameProp: string = 'Mitchele';
 
   ngOnInit(): void {}
 
@@ -53,5 +70,29 @@ export class TaskComponent implements OnInit {
       }
       this.isAddingTask = false;
     });
+  }
+
+  //!Test @Output Data
+  testMethodOutput(data: any) {
+    // Other event
+    // console.log(event.target); // The button element
+    // console.log(event.type); // "click"
+    // console.log(event.clientX); // Mouse X position
+
+    // console.log(data);
+    this.testOutput.emit(data);
+  }
+
+  testMethodOutputTwo(data: any) {
+    // console.log(data);
+    this.testOutputTwo.emit(data);
+  }
+
+  testMethodOutputThree(data: any) {
+    this.testOutputThree.emit(data);
+  }
+
+  outputInputMethod(data: any) {
+    this.outputInput.emit(data);
   }
 }

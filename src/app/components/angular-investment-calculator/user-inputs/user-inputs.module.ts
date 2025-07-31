@@ -3,18 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserInputsComponent } from './user-inputs.component';
 import { MaterialModule } from 'src/app/shared/material.module';
-
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [
-    UserInputsComponent
-  ],
+  declarations: [UserInputsComponent],
   imports: [
-    CommonModule, 
+    CommonModule,
     MaterialModule,
-    ReactiveFormsModule // ReactiveFormsModule: FormGroup, FormControl, and form validation.
+    ReactiveFormsModule, // ReactiveFormsModule: FormGroup, FormControl, and form validation.
+    SharedModule,
   ],
-  exports: [UserInputsComponent]
+  exports: [UserInputsComponent],
 })
-export class UserInputsModule { }
+export class UserInputsModule {}

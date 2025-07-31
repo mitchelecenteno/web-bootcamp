@@ -1,11 +1,12 @@
 <div class="w-[500px] p-6 bg-white rounded-lg shadow-lg">
   <!-- Add the form here -->
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-    <div class="flex flex-col gap-6">
+    <div class="">
       <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">
         Add Task
       </h2>
 
+      <!-- Form Fields -->
       <mat-form-field class="w-full">
         <mat-label>Title</mat-label>
         <input
@@ -44,7 +45,8 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <div class="flex gap-3 mt-4">
+      <!-- Form Buttons -->
+      <div class="flex flex-row gap-3 mt-4">
         <button
           type="submit"
           class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"

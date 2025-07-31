@@ -1,5 +1,6 @@
 <app-header />
 
+<p class="w-[500px] m-auto">I/O: {{ dataTest }}</p>
 <main>
   <ul id="users">
     <li *ngFor="let user of users">
@@ -15,6 +16,14 @@
     *ngIf="selectedUser; else taskFallback"
     [name]="selectedUser.name"
     [userId]="selectedUser.userId"
+    (testOutput)="receivingData($event)"
+    (testOutputTwo)="receivingDataTwo($event)"
+    (testOutputThree)="receivingDataThree($event)"
+    (outputInput)="receivingOutputInput($event)"
+    [dataInputOne]="parentData"
+    [dataInputTwo]="parentDataTwo"
+    [dataInputThree]="parentDataThree"
+    [inputOutput]="inputOutputData"
   />
   <!-- else: in app-task else taskFallback-->
   <ng-template #taskFallback>Select a user to see their tasks!</ng-template>

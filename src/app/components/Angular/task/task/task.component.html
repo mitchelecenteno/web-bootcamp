@@ -2,7 +2,46 @@
   <header>
     <h2>{{ name }}'s Tasks</h2>
     <menu>
-      <button mat-raised-button (click)="onAddTask()">Add Task</button>
+      <div class="flex flex-col gap-2">
+        <button mat-raised-button (click)="onAddTask()">Add Task</button>
+
+        <button
+          mat-raised-button
+          (click)="testMethodOutput('TEST DATA FROM CHILD!*!')"
+        >
+          TEST OUTPUT
+        </button>
+
+        <button
+          mat-raised-button
+          (click)="testMethodOutput('TEST DATA FOR THE 2ND TIME!')"
+        >
+          TEST OUTPUT TWO
+        </button>
+        <button
+          mat-raised-button
+          (click)="testMethodOutputThree('TEST DATA FOR THE 3RD TIME!')"
+        >
+          TEST OUTPUT THREE
+        </button>
+
+        <!-- Output/Input -->
+        <button mat-raised-button (click)="outputInputMethod(inputOutput)">
+          I/O
+        </button>
+        <p>Test Data Input: {{ dataInputOne }}</p>
+        <p>Second Test Data Input: {{ dataInputTwo }}</p>
+        <p>Third Test Data Input: {{ dataInputThree }}</p>
+        <p>Input/Output: {{ inputOutput }}</p>
+
+        <!-- property binding -->
+        <input [value]="propBind" />
+        <br />
+        <!-- event and property binding -->
+        <label>[(ngModel)]: </label>
+        <input [(ngModel)]="nameProp" />
+        <p>{{ nameProp }}</p>
+      </div>
     </menu>
   </header>
 

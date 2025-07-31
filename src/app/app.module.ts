@@ -12,7 +12,8 @@ import { AngularAppModule } from './components/Angular/angular-app/angular-app.m
 @NgModule({
   declarations: [AppComponent], // non-standalone components
 
-  imports: [ // modules you want to use in this module
+  imports: [
+    // modules you want to use in this module
     BrowserAnimationsModule,
     CalculatorModule,
     FormModule,
@@ -25,5 +26,4 @@ import { AngularAppModule } from './components/Angular/angular-app/angular-app.m
 })
 export class AppModule {}
 
-
-// app.module is the root module, so export is not done here 
+// app.module is the root module, so export is not done here
